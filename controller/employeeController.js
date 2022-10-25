@@ -50,7 +50,7 @@ function updateRecord(req, res) {
       res.redirect('employee/list');
     }
     else {
-      if (err.name == 'ValidationError') {
+      if (err.nameDevice == 'ValidationError') {
         handleValidationError(err, req.body);
         res.render("employee/addOrEdit", {
           viewTitle: "Update Employee",
@@ -71,7 +71,7 @@ router.get('/list', (req, res) => {
     } else {
       console.log('Error in get equipment list' + err);
     }
-  });
+  }).lean();
 });
 
 function handleValidationError(err,body) {
@@ -80,9 +80,9 @@ function handleValidationError(err,body) {
       case 'typeEquipment':
         body['typeEquipment'] = err.errors[field].message;
         break;
-      case 'name': 
-      body['nameError'] = err.errors[field].message;
-      break;
+      case 'nameDevice': 
+        body['nameDeviceError'] = err.errors[field].message;
+        break;
       default:
         break;
 

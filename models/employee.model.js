@@ -3,7 +3,7 @@ var employSchema = new mongoose.Schema({
   typeEquipment: {
     type: String
   },
-  name: {
+  nameDevice: {
     type: String
   },
   deviceID: {
