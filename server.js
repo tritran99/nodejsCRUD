@@ -1,5 +1,5 @@
 require('./models/db');
-
+require('dotenv').config()
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
@@ -40,9 +40,9 @@ app.engine(
 );
 
 app.set('view engine', 'hbs');
-app.listen(3000, () => {
-  console.log('Express server started at port : 3000');
-});
+// app.listen(3000, () => {
+//   console.log('Express server started at port : 3000');
+// });
 app.use('/employee', employeeController);
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () =>
