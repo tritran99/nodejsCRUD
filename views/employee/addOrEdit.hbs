@@ -1,5 +1,12 @@
-<h3 class="d-flex justify-content-center">{{viewTitle}}</h3>
+<script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</script>
 
+
+<h3 class="d-flex justify-content-center">{{viewTitle}}</h3>
+<i class="fa-solid fa-house"></i>
 <form action="/employee" method="POST" autocomplete="off">
     <input type="hidden" name="_id" value="{{employee._id}}">
     <div class="form-group">

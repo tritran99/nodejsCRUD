@@ -3,46 +3,19 @@
 <form action="/login" method="POST" autocomplete="off">
     <input type="hidden" name="_id" value="{{employee._id}}">
     <div class="form-group">
-        <label>Equipment</label>
-        {{!-- <input id="input1" type="text" class="form-control" name="equipment" placeholder="Equipment" value="{{employee.typeEquipment}}"> --}}
-        <select id="input1" type="text" class="form-control" name="typeEquipment" placeholder="Equipment" value="{{employee.typeEquipment}}">
-            <option selected>...</option>
-            <option value="PC">PC</option>
-            <option value="Laptop">Laptop</option>
-        </select>
+        <label>Username</label>
+        <input id="input1" type="text" class="form-control" name="userName" placeholder="User Name" value="{{employee.typeEquipment}}">
         <div class="text-danger">
             {{employee.typeEquipmentError}}</div>
     </div>
     <div class="form-group">
-        <label>Name Device</label>
-        <input type="text" class="form-control" name="nameDevice" placeholder="Name Device" value="{{employee.nameDevice}}">
+        <label>PassWord</label>
+        <input type="text" class="form-control" name="passWord" placeholder="PassWord" value="{{employee.nameDevice}}">
         <div class="text-danger">
             {{employee.nameDeviceError}}</div>
     </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label>ID</label>
-            <input type="text" class="form-control" name="deviceID" placeholder="ID" value="{{employee.deviceID}}">
-        </div>
-        <div class="form-group col-md-6">
-            <label>Status</label>
-            <select type="text" class="form-control" name="status" placeholder="Status" value="{{employee.status}}">
-                <option selected>...</option>
-                <option value="Used">Used</option>
-                <option value="Not Used">Not Used</option>
-            </select>
-        </div>
-        <div class="form-group col-md-6">
-            <label>Description</label>
-            <input type="text" class="form-control" name="description" placeholder="Description" value="{{employee.description}}">
-        </div>
-        <div class="form-group col-md-6">
-            <label>Employee</label>
-            <input type="text" class="form-control" name="employeeAssign" placeholder="Employee" value="{{employee.employeeAssign}}">
-        </div>
-    </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
-        <a class="btn btn-secondary" href="/employee/list"><i class="fa fa-list-alt"></i> View All</a>
+        <button type="submit" class="btn btn-info">Login</button>
+        <a class="btn btn-secondary" href="/employee/list">Logout</a>
     </div>
 </form>

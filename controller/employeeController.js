@@ -5,7 +5,6 @@ const express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 const Employee = mongoose.model('Employee');
-const UserLogin = mongoose.model('UserLogin');
 
 router.get('/', (req,res) => {
   res.render("employee/addOrEdit", {
@@ -13,11 +12,6 @@ router.get('/', (req,res) => {
   });
 });
 
-router.get('/login', (req,res) => {
-  res.render("login/loginPage", {
-    viewTitle: "Login"
-  });
-});
 
 router.post('/', (req,res) => {
   if (req.body._id == '')
@@ -26,21 +20,7 @@ router.post('/', (req,res) => {
   updateRecord(req, res);
 });
 
-router.post('/login', (req, res) => {
-  loginUser(req, res);
-});
 
-function loginUser(req,res) {
-  var userLogin = new UserLogin();
-  userLogin.userName = req.body.userName;
-  userLogin.passWord = req.body.passWord;
-  userLogin.save((err, doc) => {
-    res.render("login/loginPage", {
-      viewTitle: "Login",
-      userLogin: req.body
-    });
-  });
-}
 function insertRecord(req,res) {
   var employee = new Employee();
   employee.typeEquipment = req.body.typeEquipment;
@@ -123,7 +103,7 @@ router.get('/:id', (req, res) => {
   });
 });
 
-router.get('delete/:id', (req, res) => {
+router.get('/delete/:id', (req, res) => {
   Employee.findByIdAndRemove(req.params.id, (err,doc) => {
     if (!err) {
       res.redirect('/employee/list');

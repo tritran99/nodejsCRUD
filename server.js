@@ -5,6 +5,7 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const bodyparser = require('body-parser');
 const employeeController = require('./controller/employeeController');
+const loginController = require('./controller/loginController');
 const jwt = require('jsonwebtoken');
 const verifyToken = require('./middleWare/auth');
 const { verify } = require('crypto');
@@ -44,6 +45,7 @@ app.set('view engine', 'hbs');
 //   console.log('Express server started at port : 3000');
 // });
 app.use('/employee', employeeController);
+app.use('/login', loginController);
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () =>
 console.log(`Server started on port ${PORT}`));
