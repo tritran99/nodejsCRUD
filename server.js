@@ -4,6 +4,7 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const bodyparser = require('body-parser');
+const bcrypt = require('bcrypt');
 const employeeController = require('./controller/employeeController');
 const loginController = require('./controller/loginController');
 const jwt = require('jsonwebtoken');
@@ -44,6 +45,14 @@ app.set('view engine', 'hbs');
 // app.listen(3000, () => {
 //   console.log('Express server started at port : 3000');
 // });
+
+app.post('/api/register', async(req,res) => {
+  console.log(req.body);
+  const {userName, passWord} = req.body;
+  console.log(await bcrypt.hash(passWord, 10));
+  res.json({status: 'ok'})
+})
+
 app.use('/employee', employeeController);
 app.use('/login', loginController);
 const PORT = process.env.PORT || 4000;

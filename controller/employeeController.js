@@ -20,7 +20,7 @@ router.post('/', (req,res) => {
   updateRecord(req, res);
 });
 
-
+//--Add equipment--//
 function insertRecord(req,res) {
   var employee = new Employee();
   employee.typeEquipment = req.body.typeEquipment;
@@ -46,6 +46,7 @@ function insertRecord(req,res) {
   });
 }
 
+//--Edit equipment--//
 function updateRecord(req, res) {
   Employee.findOneAndUpdate({_id:req.body._id}, req.body, {new:true}, (err, doc) => {
     if (!err) {
